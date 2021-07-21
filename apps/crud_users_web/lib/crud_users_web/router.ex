@@ -13,11 +13,10 @@ defmodule CrudUsersWeb.Router do
     plug :accepts, ["json"]
   end
 
-  #scope "/", CrudUsersWeb do
-  #  pipe_through :browser
-
-  #  get "/", PageController, :index
-  #end
+  scope "/", CrudUsersWeb do
+    pipe_through :browser
+    get "/", PageController, :index
+  end
 
   # Other scopes may use custom stacks.
   scope "/api/v1", CrudUsersWeb do
