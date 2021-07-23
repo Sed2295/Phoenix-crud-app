@@ -10,7 +10,7 @@ defmodule CrudUsers.User do
     timestamps()
   end
   #El changeset nos sirve para crear un conjunto de cambios y poder validar y filtrar todos los datos que deseamos insertar
-  def signup_changeset(user = %CrudUsers.User{}, params) do
+  def signup_changeset(user = %CrudUsers.User{}, params \\ %{}) do
     user
     #cast y params son de Ecto.Changeset
       |> cast(params, [:name, :age, :email])

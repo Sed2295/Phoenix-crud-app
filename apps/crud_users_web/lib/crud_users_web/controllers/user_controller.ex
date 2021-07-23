@@ -21,6 +21,15 @@ defmodule CrudUsersWeb.UserController do
           #|> json(%{error: "Error al crear el usuario"})
     end
   end
+  #funcion que usamos para guardar los datos del formulario en la bd
+  def create_form(conn, %{"user" => user} = params) do
+    IO.inspect params
+    User.signup_changeset(%User{}, user)
+    |> User.save()
+    redirect(conn, to: Routes.page_path(conn, :index))
+    #[[:to,]]
+    #render(conn, :index)
+  end
   def index(conn, _params) do
     users = User.search_all
     IO.inspect users

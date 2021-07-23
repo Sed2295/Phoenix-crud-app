@@ -16,6 +16,7 @@ defmodule CrudUsersWeb.Router do
   scope "/", CrudUsersWeb do
     pipe_through :browser
     get "/", PageController, :index
+    post "/create_form", UserController, :create_form
   end
 
   # Other scopes may use custom stacks.
